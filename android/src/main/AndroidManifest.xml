@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
 
     <application>
-        <receiver android:name=".EventReceiver" />
+        <receiver android:name=".EventReceiver" android:exported="true"/>
         <activity
             android:name=".IncomingCallActivity"
             android:excludeFromRecents="true"
@@ -14,6 +14,7 @@
             android:showWhenLocked="true"
             android:taskAffinity="com.connectycube.flutter.connectycube_flutter_call_kit.INCOMING_CALL_AFFINITY"
             android:theme="@android:style/Theme.Holo.NoActionBar"
+            android:exported="false"
             android:turnScreenOn="true" />
         <service
             android:name=".background_isolates.ConnectycubeFlutterBgPerformingService"

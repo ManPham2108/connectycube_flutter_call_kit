@@ -180,11 +180,10 @@ fun addCallRejectAction(
             "drawable",
             context.packageName
         ),
-        getColorizedText("거절", "#E02B00"),
+        getColorizedText("Reject", "#E02B00"),
         declinePendingIntent
     )
         .build()
-
     notificationBuilder.addAction(declineAction)
 }
 
@@ -216,7 +215,7 @@ fun addCallAcceptAction(
     )
     val acceptAction: NotificationCompat.Action = NotificationCompat.Action.Builder(
         context.resources.getIdentifier("ic_menu_call", "drawable", context.packageName),
-        getColorizedText("수락", "#4CB050"),
+        getColorizedText("Accept", "#4CB050"),
         acceptPendingIntent
     )
         .build()

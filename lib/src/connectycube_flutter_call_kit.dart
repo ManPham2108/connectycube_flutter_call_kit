@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/services.dart';
@@ -97,6 +98,17 @@ class ConnectycubeFlutterCallKit {
           handler, BackgroundCallbackName.ACCEPTED_IN_BACKGROUND);
     }
   }
+  static Future<bool> backToForeground() async {
+    if (Platform.isIOS) {
+      return false;
+    }
+    var resp = await _methodChannel.invokeMethod<bool>('backToForeground', <String, dynamic>{});
+    if (resp != null) {
+      return resp;
+    }
+    return false;
+  }
+
 
   Future<void> _registerBackgroundCallEventHandler(
       CallEventHandler handler, String callbackName) async {
